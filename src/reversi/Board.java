@@ -6,6 +6,8 @@ package reversi;
 
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.*;
 
 /**
@@ -14,20 +16,30 @@ import javax.swing.*;
  */
 public class Board {
     
-    public void createBoard() {
+    public Board() {
+    }
+    
+    public void CreateBoard(int value) {
     JFrame frame = new JFrame("Reversi");
-        frame.setSize(300, 300);
-        frame.setLocation(120, 120);
+    JButton button = null;
+        frame.setSize(500, 500);
+        frame.setLocation(500, 120);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.getContentPane().setLayout(new GridLayout(8, 8));
+        frame.getContentPane().setLayout(new GridLayout(value, value));
 
-        for (int i = 0; i < 64; i++)
+        for (int i = 0; i < value * value; i++)
         {
-            JButton feld = new JButton();
-            feld.setBackground(Color.GRAY);
-            frame.add(feld);
+            button = new JButton();
+            button.setBackground(Color.LIGHT_GRAY);
+            button.addActionListener(new PutDisc());
+            frame.add(button);
         }
         frame.setVisible(true);
+    }
+    class PutDisc implements ActionListener {
+        Disc disc = new Disc();
+        public void actionPerformed(ActionEvent event) {
+        }
     }
 }
     
