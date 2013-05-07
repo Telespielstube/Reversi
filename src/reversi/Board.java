@@ -14,33 +14,34 @@ import javax.swing.*;
  *
  * @author marta
  */
-public class Board {
+public class Board extends JFrame {
     
     public Board() {
     }
     
+    private JButton button ;
+    
     public void CreateBoard(int value) {
-    JFrame frame = new JFrame("Reversi");
-    JButton button = null;
-        frame.setSize(500, 500);
-        frame.setLocation(500, 120);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.getContentPane().setLayout(new GridLayout(value, value));
+        setSize(500, 500);
+        setLocation(500, 120);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new GridLayout(value, value));
 
         for (int i = 0; i < value * value; i++)
         {
             button = new JButton();
             button.setBackground(Color.LIGHT_GRAY);
             button.addActionListener(new PutDisc());
-            frame.add(button);
+            add(button);
         }
-        frame.setVisible(true);
+        setVisible(true);
     }
     class PutDisc implements ActionListener {
-        Disc disc = new Disc();
         public void actionPerformed(ActionEvent event) {
         }
     }
+     
+  
 }
     
 

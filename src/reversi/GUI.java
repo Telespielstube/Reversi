@@ -3,6 +3,7 @@
  * and open the template in the editor.
  */
 package reversi;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -11,34 +12,41 @@ import java.awt.event.ActionListener;
  *
  * @author marta
  */
-public class GUI {
+public class GUI extends JFrame {
     
     public GUI(){}
     
-        JFrame frame;
-        JLabel label;
+    private JPanel panel;
+    private JPanel buttonPanel;
+    private JLabel label;
+    private JButton button;
+    private JMenuBar menuBar;
+    private JMenu menuBoard;
+    private JMenuItem small;
+    private JMenuItem medium;
+    private JMenuItem large;
     
     public void createGui() {
-        frame = new JFrame("Reversi");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
          
-        JMenuBar menuBar = new JMenuBar();
-        JMenu menuBoard = new JMenu("Board Size");
-        JMenuItem small = new JMenuItem("Small");
-        JMenuItem medium = new JMenuItem("Medium");
-        JMenuItem large = new JMenuItem("Large");
+        menuBar = new JMenuBar();
+        menuBoard = new JMenu("Board Size");
+        small = new JMenuItem("Small");
+        medium = new JMenuItem("Medium");
+        large = new JMenuItem("Large");
+        small.addActionListener(new SmallBoard());
+        medium.addActionListener(new MediumBoard());
+        large.addActionListener(new LargeBoard());
         menuBar.add(menuBoard);
         menuBoard.add(small);
         menuBoard.add(medium);
         menuBoard.add(large);
-        small.addActionListener(new SmallBoard());
-        medium.addActionListener(new MediumBoard());
-        large.addActionListener(new LargeBoard());
-        
-        JPanel panel = new JPanel();
-        JPanel buttonPanel = new JPanel();
+              
+        panel = new JPanel();
+        buttonPanel = new JPanel();
         label = new JLabel();
-        JButton button = new JButton("OK");
+        button = new JButton("OK");
         button.addActionListener(new OKButton());         
         label.setText("<html><center><b>Reversi</b><p/><p/><p/>"
                       + "Welcome to the famous boardgame Reversi.<p/>"
@@ -48,12 +56,12 @@ public class GUI {
         buttonPanel.add(BorderLayout.SOUTH, button);
         button.setPreferredSize(new Dimension(80, 40));
         
-        frame.add(BorderLayout.SOUTH, buttonPanel);
-        frame.setJMenuBar(menuBar);
-        frame.add(panel);
-        frame.setLocation(500, 300);
-        frame.setSize(550, 300);
-        frame.setVisible(true);
+        add(BorderLayout.SOUTH, buttonPanel);
+        setJMenuBar(menuBar);
+        add(panel);
+        setLocation(500, 300);
+        setSize(550, 300);
+        setVisible(true);
     }
     
     class OKButton implements ActionListener {
@@ -65,14 +73,14 @@ public class GUI {
     class SmallBoard implements ActionListener {
         Board board = new Board();
         public void actionPerformed(ActionEvent event) {
-            board.CreateBoard(6);
+            board.CreateBoard(8);
         }
     }
     
     class MediumBoard implements ActionListener {
         Board board = new Board();
         public void actionPerformed(ActionEvent event) {
-            board.CreateBoard(8);
+            board.CreateBoard(9);
         }
     }
     

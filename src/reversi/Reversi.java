@@ -4,8 +4,6 @@
  */
 package reversi;
 
-import static Prog1Tools.IOTools.*;
-
 /**
  *
  * @author marta
@@ -17,8 +15,10 @@ public class Reversi {
      */
     public static void main(String[] args) {
         // TODO code application logic here      
-        GUI gui = new GUI();
-        gui.createGui();
-
+      //  GUI gui = new GUI();
+        Game game = new Game();
+        Board board = new Board();
+        //gui.createGui();
+        game.StartSetup(6);
 	}
 }
