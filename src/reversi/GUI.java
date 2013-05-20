@@ -14,7 +14,11 @@ import java.awt.event.ActionListener;
  */
 public class GUI extends JFrame {
     
-    public GUI(){}
+    public GUI(){
+        setLocation(500, 300);
+        setSize(550, 300);
+        setVisible(true);
+    }
     
     private JPanel panel;
     private JPanel buttonPanel;
@@ -35,9 +39,9 @@ public class GUI extends JFrame {
         small = new JMenuItem("Small");
         medium = new JMenuItem("Medium");
         large = new JMenuItem("Large");
-        small.addActionListener(new SmallBoard());
-        medium.addActionListener(new MediumBoard());
-        large.addActionListener(new LargeBoard());
+        small.addActionListener(new smallBoard());
+        medium.addActionListener(new mediumBoard());
+        large.addActionListener(new largeBoard());
         menuBar.add(menuBoard);
         menuBoard.add(small);
         menuBoard.add(medium);
@@ -47,7 +51,7 @@ public class GUI extends JFrame {
         buttonPanel = new JPanel();
         label = new JLabel();
         button = new JButton("OK");
-        button.addActionListener(new OKButton());         
+        button.addActionListener(new okButton());         
         label.setText("<html><center><b>Reversi</b><p/><p/><p/>"
                       + "Welcome to the famous boardgame Reversi.<p/>"
                       + "You need to choose the size of the board in the menu."
@@ -57,37 +61,34 @@ public class GUI extends JFrame {
         button.setPreferredSize(new Dimension(80, 40));
         
         add(BorderLayout.SOUTH, buttonPanel);
-        setJMenuBar(menuBar);
         add(panel);
-        setLocation(500, 300);
-        setSize(550, 300);
-        setVisible(true);
+     
     }
     
-    class OKButton implements ActionListener {
+    class okButton implements ActionListener {
         public void actionPerformed(ActionEvent event) {
             label.setText("");
         }
     }
     
-    class SmallBoard implements ActionListener {
+    class smallBoard implements ActionListener {
         Board board = new Board();
         public void actionPerformed(ActionEvent event) {
-            board.CreateBoard(8);
+            board.createBoard(8);
         }
     }
     
-    class MediumBoard implements ActionListener {
+    class mediumBoard implements ActionListener {
         Board board = new Board();
         public void actionPerformed(ActionEvent event) {
-            board.CreateBoard(9);
+            board.createBoard(9);
         }
     }
     
-    class LargeBoard implements ActionListener {
+    class largeBoard implements ActionListener {
         Board board = new Board();
         public void actionPerformed(ActionEvent event) {
-            board.CreateBoard(10);
+            board.createBoard(10);
         }
     }
 }

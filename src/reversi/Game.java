@@ -4,26 +4,35 @@
  */
 package reversi;
 
+import static Prog1Tools.IOTools.*;
 /**
  *
  * @author marta
  */
 public class Game {
     
-    private int [][] matrix;
+    private Board board;
+    private Player player1;
+    private Player player2;
+    private boolean possible = true;
     
-    public int[][] StartSetup(int boardSize) {
-        matrix = new int[boardSize][boardSize];
-        for (int i = 0; i < boardSize; i++) {
-            for (int j = 0; j < boardSize; j++) {             
-                matrix[i][j] = 0;                    
-                System.out.printf("%3d", matrix[i][j]);
-            }   
-            System.out.printf("\n");    
-        }
-        return matrix;
+    public Game(Board board) {
+       this.board = board;
     }
     
+    public void match() {
+        player1 = new Player(board, true);
+        player2 = new Player(board, false);
+        board.countPoint();
+        
+        while (true) {
+            player1.move();
+            board.countPoint();
+            board.print();           
+            player2.move();
+            board.countPoint();
+            board.print();
+       }
+    }
 }
-    
 

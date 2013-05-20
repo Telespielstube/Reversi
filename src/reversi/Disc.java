@@ -11,13 +11,31 @@ import java.awt.*;
  *
  * @author marta
  */
-public class Disc extends JFrame {
+
+public class Disc {
     
-    public void CreateDisc() {
-     
+    private boolean black = false;
+
+    
+    public Disc(boolean black) {
+        this.black = black;
     }
-   
+    
+    public boolean isBlack() {
+        return black;
+    }
+    
+    public void flip() {
+        black = !black;
+    }
+        /*
+     */
 }
+
+        
+    
+
+
 
 
     

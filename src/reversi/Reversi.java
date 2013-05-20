@@ -3,22 +3,24 @@
  * and open the template in the editor.
  */
 package reversi;
-
+import static Prog1Tools.IOTools.*;
 /**
  *
  * @author marta
  */
 public class Reversi {
 
+
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here      
-      //  GUI gui = new GUI();
-        Game game = new Game();
-        Board board = new Board();
-        //gui.createGui();
-        game.StartSetup(6);
-	}
+        // TODO code application logic here
+        int boardSize = readInteger("Please input 6, 8 or 10 as board size:");
+        Board board = new Board(boardSize);
+        Game game = new Game(board);
+        board.startSetup();
+        board.print();
+        game.match(); 
+    }
 }
