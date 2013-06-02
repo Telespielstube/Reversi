@@ -27,6 +27,10 @@ public class Board {
         this.discsToBeFlipped = new ArrayList<Disc>();
     }
     
+    public int getSize() {
+        return this.boardSize;
+    }
+    
     private Disc [][] matrix;
     
     public void startSetup() {        

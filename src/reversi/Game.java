@@ -12,7 +12,7 @@ package reversi;
 public class Game {
     
     private Board board;
-    private boolean isBlack = true;
+    private boolean isBlack = false;
     
     public Game(Board board) {
        this.board = board;
