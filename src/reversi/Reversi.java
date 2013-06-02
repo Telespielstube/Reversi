@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 package reversi;
-import static Prog1Tools.IOTools.*;
+
 /**
  *
  * @author marta
@@ -16,11 +16,7 @@ public class Reversi {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        int boardSize = readInteger("Please input 6, 8 or 10 as board size:");
-        Board board = new Board(boardSize);
-        Game game = new Game(board);
-        board.startSetup();
-        board.print();
-        game.match(); 
+        GUI gui = new GUI();
+        gui.GuiStartSetup();
     }
 }

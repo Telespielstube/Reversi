@@ -16,7 +16,6 @@ public class Disc {
     
     private boolean black = false;
 
-    
     public Disc(boolean black) {
         this.black = black;
     }
@@ -28,8 +27,6 @@ public class Disc {
     public void flip() {
         black = !black;
     }
-        /*
-     */
 }
 
         
