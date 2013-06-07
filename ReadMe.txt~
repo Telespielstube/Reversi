@@ -1,0 +1,25 @@
+Reversi manual
+
+The game is a two player game and is based on the board game Reversi. The whole game controlled
+by the menu and mouse.
+
+After you double clicked the Reversi icon you are presented with the default appearance of 
+the game. Which is described in detail below.
+
+Default appearance:
+
+Menu bar:
+File 				has only the "Exit" icon to leave the game.
+Board size	has three different options to choose.
+						6x6 changes the board size to 6x6 fields.
+						8x8 is the standard size of a reversi game, therefore it is the default setting.
+						10x10	changes the board size to 10x10 fields. 
+Help				has two options to choose.
+						Reversi manual describes the rules of the board game in a nutshell.
+						Help give a short description of the menu items.
+
+In game
+The black player makes the first move, thereafter both players place their discs alternately on the board by clicking on a field with the mouse pointer. The active field has a blue frame around. On the right hand side of the board the 
+small dots left to the player labels indicate their play color. The score below shows the sum
+of all discs of the same color.
+After the game is over the winner is displayed on screen and the players can play another round, choose a different size by clicking on the menu item "Board Size" or they can exit the game.

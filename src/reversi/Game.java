@@ -1,9 +1,8 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * The classe game contains all methods reliable to the ongoing game.
+ * 
  */
 package reversi;
-
 
 /**
  *
@@ -12,23 +11,35 @@ package reversi;
 public class Game {
     
     private Board board;
-    private boolean isBlack = false;
+    private boolean isBlack = true;
     
     public Game(Board board) {
        this.board = board;
     }
     
-    public void reset(){
-        isBlack = false; // white makes the first move.
-    }
-    
-    public boolean setDisc(int x, int y) {
-        boolean result = board.setDisc(x, y, isBlack);
+    /*
+     * The method setDiscVisual sets the disc on the grafical user interface board.
+     * 
+     * @param x         contains the x value of the turn in the matrix.
+     * @param y         contains the y value of the turn in the matrix.
+     * 
+     * @return result   returns the x and y values as well as the color of the disc.
+     * 
+     */
+    public boolean setDiscVisual(int x, int y) {
+        boolean result = board.setDiscIntern(x, y, isBlack);
         if (result == true) {
             isBlack = !isBlack;
             board.countPoint();
         }
         return result;
-    }    
+    }
+    
+    /* SkipTurn skips the players turn in case there is now valid move to make.
+     * 
+     */
+    public void skipTurn() {
+        isBlack = !isBlack;        
+    }
 }
 

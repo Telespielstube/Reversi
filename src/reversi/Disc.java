@@ -20,10 +20,20 @@ public class Disc {
         this.black = black;
     }
     
+    /* The method isBlack holds the value of the current disc color. Which also means
+     * the current players turn.
+     * 
+     * @return black    returns a boolean value if true, it is black's turn if not
+     *                  it is white's turn.
+     */
     public boolean isBlack() {
         return black;
     }
     
+    /* This method flips all black discs to white and vice versa. Depending on which
+     * players turn it is.
+     * 
+     */
     public void flip() {
         black = !black;
     }
